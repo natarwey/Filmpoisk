@@ -9,11 +9,21 @@ namespace TestWpfProj.Data
 {
     public class Film
     {
-        public Film(string title, string ganr, DateTime data, double otsenka, string picture)
+        public Film(string title, DateTime data, double otsenka, string picture)
         {
             Id = Guid.NewGuid().ToString();
             Title = title;
-            Ganr = ganr;
+            //Ganr = ganr;
+            Data = data;
+            Otsenka = otsenka;
+            Picture = picture;
+        }
+
+        public Film(string title, FilmGanr ganr, DateTime data, double otsenka, string picture)
+        {
+            Id = Guid.NewGuid().ToString();
+            Title = title;
+            FilmGanr = ganr;
             Data = data;
             Otsenka = otsenka;
             Picture = picture;
@@ -25,6 +35,6 @@ namespace TestWpfProj.Data
         public DateTime Data { get; set; }
         public double Otsenka { get; set; }
         public string Picture { get; set; }
-
+        public FilmGanr? FilmGanr { get; set; }
     }
 }

@@ -8,13 +8,20 @@ namespace TestWpfProj.Data
 {
     public static class DataContext
     {
+        public static List<FilmGanr> FilmGanres = new List<FilmGanr>()
+        {
+            new FilmGanr("Romantic"),
+            new FilmGanr("Comedia"),
+            new FilmGanr("Detectiv")
+        };
+
         public static List<Film> Films = new List<Film>()
         {
-            new Film("Megusto", "romantic", new DateTime(02,02,2022), 5.8,""),
-            new Film("bruh", "romantic", new DateTime(02,02,2022), 5.8,""),
-            new Film("Omsk", "romantic", new DateTime(02,02,2022), 5.8,""),
-            new Film("MalishkaHochetSdatPraktiku", "romantic", new DateTime(02,02,2022), 5.8,""),
-            new Film("Sigma", "romantic", new DateTime(02,02,2022), 5.8,"")
+            new Film("Posle", FilmGanres[1], new DateTime(2022,2,2), 5.8,""),
+            new Film("Sled", FilmGanres[3], new DateTime(2018,1,3), 8.1,""),
+            new Film("Do rastveta", FilmGanres[2], new DateTime(2020,12,10), 9.5,""),
+            new Film("MalishkaHochetSdatPraktiku", FilmGanres[1], new DateTime(2003,1,7), 9.9,""),
+            new Film("4 Zakon", FilmGanres[2], new DateTime(1875,2,4), 4.4,"")
         };
     }
 }

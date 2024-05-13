@@ -6,26 +6,50 @@
         xmlns:local="clr-namespace:TestWpfProj"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid Background="Lavender">
-            <ListView Name="phonesList" >
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Id</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Title}" Width="100">Title</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Ganr}" Width="100">Ganr</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Data}" Width="100">Data</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Otsenka}">Otsenka</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Picture}">Picture</GridViewColumn>
-                    </GridView>
-                </ListView.View>
-                <ListView.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="Edit" />
-                        <MenuItem Header="Delete"/>
-                    </ContextMenu>
-                </ListView.ContextMenu>
-            </ListView>
+    <Grid Background="Lavender">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel Grid.Column="0" Margin="6" HorizontalAlignment="Center">
+                <Label Content="Search:"/>
+                <TextBox x:Name="SerchTB" Width="175" TextChanged="SerchTB_TextChanged"></TextBox>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1" Margin="6" HorizontalAlignment="Center">
+                <Label Content="Filter:"/>
+                <ComboBox Width="125" x:Name="FilterCB" DisplayMemberPath="Title"></ComboBox>
+            </WrapPanel>
+            <WrapPanel Grid.Column="2" Margin="6" HorizontalAlignment="Center">
+                <Label Content="Sort:"/>
+                <ComboBox Width="125" ></ComboBox>
+            </WrapPanel>
         </Grid>
+
+        <ListView Name="LstView" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Title}" Width="100">Title</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Ganr}" Width="100">Ganr</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Data}" Width="100">Data</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Otsenka}">Otsenka</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Picture}">Picture</GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Edit" Click="EditMI_Click"/>
+                    <MenuItem Header="Delete" Click="DeleteMI_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
     </Grid>
 </Window>

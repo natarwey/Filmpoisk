@@ -21,11 +21,51 @@ namespace TestWpfProj
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Film> _films;
+        private List<FilmGanr> _filmGanres;
         public MainWindow()
         {
             InitializeComponent();
 
-            phonesList.ItemsSource = TestWpfProj.Data.DataContext.Films;
+            _films = Data.DataContext.Films;
+            _filmGanres = Data.DataContext.FilmGanres;
+
+            LstView.ItemsSource = _films;
+            FilterCB.ItemsSource = _filmGanres;
+        }
+
+        private void DeleteMI_Click(object sender, RoutedEventArgs e)
+        {
+            Film selectedMeme = (Film)LstView.SelectedItem;
+            _films.Remove(selectedMeme);
+
+            LstView.ItemsSource = _films;
+            LstView.Items.Refresh();
+        }
+
+        private void EditMI_Click(object sender, RoutedEventArgs e)
+        {
+            Film selectedMeme = (Film)LstView.SelectedItem;
+            MessageBox.Show($"Id:{selectedMeme.Id} \nTitle: {selectedMeme.Title}", "Soon!");
+        }
+
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LstView.ItemsSource = _films;
+            LstView.Items.Refresh();
+        }
+
+        private void SerchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var tempLst = _films;
+
+            if (!String.IsNullOrEmpty(SerchTB.Text))
+            {
+                tempLst = _films.Where(x => x.Title.Contains(SerchTB.Text)).ToList();
+            }
+
+            LstView.ItemsSource = tempLst;
+            LstView.Items.Refresh();
         }
     }
 }
