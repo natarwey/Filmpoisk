@@ -9,14 +9,15 @@ namespace TestWpfProj.Data
 {
     public class Film
     {
-        public Film(string title, DateTime data, double otsenka, string picture)
+        public Film(string title, FilmGanr ganr)
         {
             Id = Guid.NewGuid().ToString();
             Title = title;
+            FilmGanr = ganr;
             //Ganr = ganr;
-            Data = data;
-            Otsenka = otsenka;
-            Picture = picture;
+            //Data = data;
+            //Otsenka = otsenka;
+            //Picture = picture;
         }
 
         public Film(string title, FilmGanr ganr, DateTime data, double otsenka, string picture)

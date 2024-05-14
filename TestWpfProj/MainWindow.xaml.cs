@@ -43,10 +43,10 @@ namespace TestWpfProj
             LstView.Items.Refresh();
         }
 
-        private void EditMI_Click(object sender, RoutedEventArgs e)
+        private void ViewMI_Click(object sender, RoutedEventArgs e)
         {
-            Film selectedMeme = (Film)LstView.SelectedItem;
-            MessageBox.Show($"Id:{selectedMeme.Id} \nTitle: {selectedMeme.Title}", "Soon!");
+            Film selectedFilm = (Film)LstView.SelectedItem;
+            MessageBox.Show($"Id: {selectedFilm.Id} \nTitle: {selectedFilm.Title} \nGanr: {selectedFilm.FilmGanr.Title} \nData: {selectedFilm.Data} \nOtsenka: {selectedFilm.Otsenka} \nPicture: {selectedFilm.Picture}", "Soon!");
         }
 
         private void RefreshBtn_Click(object sender, RoutedEventArgs e)
@@ -65,6 +65,20 @@ namespace TestWpfProj
             }
 
             LstView.ItemsSource = tempLst;
+            LstView.Items.Refresh();
+        }
+
+        private void FilterCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var filter = _films;
+
+            var type = (FilmGanr)FilterCB.SelectedItem;
+
+            if (type == null)
+                return;
+
+            filter = filter.Where(x => x.FilmGanr.Id == type.Id).ToList();
+            LstView.ItemsSource = filter;
             LstView.Items.Refresh();
         }
     }

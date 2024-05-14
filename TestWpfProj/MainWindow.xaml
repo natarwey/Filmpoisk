@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TestWpfProj"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="Lavender">
+    <Grid Background="LightPink">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="1*"/>
@@ -37,16 +37,16 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Id</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Title}" Width="100">Title</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Ganr}" Width="100">Ganr</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Title}" Width="120">Title</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=FilmGanr.Title}" Width="120">Ganr</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Data}" Width="100">Data</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Otsenka}">Otsenka</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Picture}">Picture</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Otsenka}" Width="70">Otsenka</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Picture}" Width="100">Picture</GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Edit" Click="EditMI_Click"/>
+                    <MenuItem Header="View" Click="ViewMI_Click"/>
                     <MenuItem Header="Delete" Click="DeleteMI_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
