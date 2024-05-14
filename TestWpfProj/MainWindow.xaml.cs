@@ -86,5 +86,28 @@ namespace TestWpfProj
         {
 
         }
+
+        private void SortCB_SelectionChanged()
+        {
+            //var sortA = FilmSortList.OrderBy(p => p.Title); //От А до Я
+            //Console.WriteLine("");
+            //foreach (var t in sortA)
+            //    Console.WriteLine(t.Title);
+
+            //var sortY = FilmSortList.OrderByDescending(p => p.Title); //От Я до А
+            //Console.WriteLine("");
+            //foreach (var t in sortY)
+            //    Console.WriteLine(t.Title);
+
+            //var sort1 = FilmSortList.OrderBy(p => p.Otsenka); //По возрастанию оценки
+            //Console.WriteLine("");
+            //foreach (var t in sort1)
+            //    Console.WriteLine($"{t.Title} is Otsenka = {t.Otsenka}");
+
+            //var sort9 = FilmSortList.OrderByDescending(p => p.Otsenka); //По убыванию оценки
+            //Console.WriteLine("");
+            //foreach (var t in sort9)
+            //    Console.WriteLine($"{t.Title} is Otsenka = {t.Otsenka}");
+        }
     }
 }
