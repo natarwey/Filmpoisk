@@ -81,5 +81,10 @@ namespace TestWpfProj
             LstView.ItemsSource = filter;
             LstView.Items.Refresh();
         }
+
+        private void FilterCB_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
     }
 }
